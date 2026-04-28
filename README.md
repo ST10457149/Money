@@ -1,4 +1,4 @@
- MoneyGoat – Personal Budgeting App
+MoneyGoat – Personal Budgeting App
 Technical Report & Project Documentation
 
  1. Executive Summary
@@ -16,19 +16,19 @@ The application offers a specialized suite of features tailored for modern finan
 
  3. Functional Architecture
 
- 3.1 Authentication & Security
+ 3.1 Authentication and Security
 The entry point of the application utilizes a login/registration system. User credentials are encrypted and managed via a local Room Database, while session persistence is handled through SharedPreferences, ensuring a seamless user experience upon app relaunch.
 
  3.2 Categorization Logic
 The Categories module allows users to define the "labels" of their financial life (e.g., Groceries, Utilities, Leisure). This forms the foundation for all subsequent analytics, ensuring that data is organized according to the user's specific needs.
 
- 3.3 Expense Entry & Multimedia Support
+ 3.3 Expense Entry and Multimedia Support
 The Add Expense interface utilizes a multi-modal input strategy:
   Date/Time Pickers: Standardized temporal data entry.
   Camera API Integration: Captures receipt images, storing them in the app's private external storage directory and linking the URI to the database record.
   Validation Logic: Ensures data integrity by verifying amounts and required fields before persistence.
 
-3.4 Data Visualization & Analytics
+3.4 Data Visualization and Analytics
 The Analytics engine performs real-time SQL aggregations to calculate totals per category. This provides immediate visual feedback on where capital is being allocated, highlighting potential areas for cost-saving.
 
 3.5 Budgetary Goals
@@ -45,4 +45,5 @@ Users can establish monthly financial boundaries. By setting a minimum savings g
    Logging: Comprehensive Logcat instrumentation across UI and Data layers for auditability.
 
  5. Conclusion
+    
 MoneyGoat serves as a comprehensive solution for users seeking to improve their financial literacy. By combining ease of use with detailed data entry and analytical insights, the application bridges the gap between simple ledger keeping and proactive wealth management.
