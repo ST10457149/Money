@@ -38,6 +38,7 @@
             android:text="Add"
             android:backgroundTint="#1A6B4A"
             android:textColor="@android:color/white" />
+
     </LinearLayout>
 
     <TextView
