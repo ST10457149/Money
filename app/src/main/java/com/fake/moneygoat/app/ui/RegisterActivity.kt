@@ -17,7 +17,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
-
+        //User Details
         val etUsername = findViewById<EditText>(R.id.etRegUsername)
         val etPassword = findViewById<EditText>(R.id.etRegPassword)
         val etConfirm = findViewById<EditText>(R.id.etRegConfirmPassword)
