@@ -5,6 +5,7 @@ import android.app.TimePickerDialog
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class AddExpenseFragment : Fragment() {
+    private val TAG = "MoneyGoat_AddExpenseUI"
     private lateinit var expenseVM: ExpenseViewModel
     private lateinit var categoryVM: CategoryViewModel
     private var selectedDate = "";
@@ -35,16 +37,24 @@ class AddExpenseFragment : Fragment() {
     private val requestCameraPermission = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { granted ->
-        if (granted) launchCamera()
-        else Toast.makeText(requireContext(), "Camera permission required", Toast.LENGTH_SHORT)
-            .show()
+        if (granted) {
+            Log.d(TAG, "Camera permission granted")
+            launchCamera()
+        } else {
+            Log.w(TAG, "Camera permission denied")
+            Toast.makeText(requireContext(), "Camera permission required", Toast.LENGTH_SHORT)
+                .show()
+        }
     }
     private val takePicture =
         registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
             if (success && photoUri != null) {
+                Log.d(TAG, "Photo captured successfully: $photoPath")
                 view?.findViewById<ImageView>(R.id.ivPhoto)
                     ?.let { it.setImageURI(photoUri); it.visibility = View.VISIBLE }
                 Toast.makeText(requireContext(), "Photo captured!", Toast.LENGTH_SHORT).show()
+            } else {
+                Log.w(TAG, "Photo capture failed or cancelled")
             }
         }
 
@@ -53,6 +63,7 @@ class AddExpenseFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d(TAG, "AddExpenseFragment created")
         val userId = (requireActivity() as MainActivity).userId
         expenseVM = ViewModelProvider(this)[ExpenseViewModel::class.java]
         categoryVM = ViewModelProvider(this)[CategoryViewModel::class.java]
@@ -126,19 +137,24 @@ class AddExpenseFragment : Fragment() {
         btnSave.setOnClickListener {
             val desc = etDesc.text.toString().trim();
             val amtStr = etAmt.text.toString().trim()
+            Log.d(TAG, "Save expense button clicked. Desc: $desc, Amount: $amtStr")
             if (desc.isEmpty() || amtStr.isEmpty() || selectedDate.isEmpty() || selectedStartTime.isEmpty() || selectedEndTime.isEmpty()) {
+                Log.w(TAG, "Expense validation failed: empty fields")
                 Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT)
                     .show(); return@setOnClickListener
             }
             if (categories.isEmpty()) {
+                Log.w(TAG, "Expense validation failed: no categories")
                 Toast.makeText(requireContext(), "Create a category first", Toast.LENGTH_SHORT)
                     .show(); return@setOnClickListener
             }
             val amt = amtStr.toDoubleOrNull()
             if (amt == null || amt <= 0) {
+                Log.w(TAG, "Expense validation failed: invalid amount $amtStr")
                 Toast.makeText(requireContext(), "Enter a valid amount", Toast.LENGTH_SHORT)
                     .show(); return@setOnClickListener
             }
+            Log.d(TAG, "Validated expense. Adding via ViewModel.")
             expenseVM.addExpense(
                 Expense(
                     date = selectedDate,
