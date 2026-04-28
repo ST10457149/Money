@@ -9,6 +9,7 @@ import kotlinx.coroutines.launch
 class ExpenseViewModel(application: Application) : AndroidViewModel(application) {
     private val dao = AppDatabase.getDatabase(application).expenseDao()
     private val _dateFilter = MutableLiveData<Triple<Long, String, String>>()
+
     val filteredExpenses: LiveData<List<Expense>> = _dateFilter.switchMap { (u, s, e) -> dao.getExpensesByDateRange(u, s, e) }
     val categoryTotals: LiveData<List<CategoryTotal>> = _dateFilter.switchMap { (u, s, e) -> dao.getCategoryTotals(u, s, e) }
     val totalSpent: LiveData<Double?> = _dateFilter.switchMap { (u, s, e) -> dao.getTotalSpent(u, s, e) }
