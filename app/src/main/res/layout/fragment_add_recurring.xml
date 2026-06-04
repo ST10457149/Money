@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Recurring Transaction"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/etRecurringDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description (e.g. Rent)"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <EditText
+            android:id="@+id/etRecurringAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Amount"
+            android:inputType="numberDecimal"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Category"
+            android:textColor="@color/black" />
+
+        <Spinner
+            android:id="@+id/spinnerRecurringCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Frequency"
+            android:textColor="@color/black" />
+
+        <Spinner
+            android:id="@+id/spinnerFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@android:array/imProtocols" /> <!-- Placeholder, usually Monthly, Weekly etc -->
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Next Due Date"
+            android:textColor="@color/black" />
+
+        <DatePicker
+            android:id="@+id/datePickerRecurring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:datePickerMode="spinner" />
+
+        <Button
+            android:id="@+id/btnSaveRecurring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Save Recurring"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+</ScrollView>

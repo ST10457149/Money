@@ -3,63 +3,108 @@
     Screen showing spending breakdown by category.
     Displays categorical totals and a grand total for a selected date range.
 -->
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:background="@color/background_cream">
 
-    <!-- Title -->
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Category Totals"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@color/primary_green"
-        android:layout_marginBottom="12dp"/>
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <!-- Title and Export -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category Totals"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnExportPdf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PDF"
+                android:textColor="@color/black"
+                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+
+            <Button
+                android:id="@+id/btnExportCsv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CSV"
+                android:textColor="@color/black"
+                style="@style/Widget.MaterialComponents.Button.TextButton"/>
+        </LinearLayout>
+    </RelativeLayout>
 
     <!-- Filter Controls -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginBottom="8dp">
 
-        <!-- Start Date Filter -->
-        <Button
-            android:id="@+id/btnCatFilterStart"
-            android:layout_width="0dp"
+        <Spinner
+            android:id="@+id/spinnerAccountFilter"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_weight="1"
-            android:textSize="11sp"
-            android:backgroundTint="@color/button_light"
-            android:textColor="@color/text_primary"
-            android:layout_marginEnd="4dp"/>
+            android:layout_marginBottom="4dp"
+            android:visibility="gone"/>
 
-        <!-- End Date Filter -->
-        <Button
-            android:id="@+id/btnCatFilterEnd"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:textSize="11sp"
-            android:backgroundTint="@color/button_light"
-            android:textColor="@color/text_primary"
-            android:layout_marginEnd="4dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- Start Date Filter -->
+            <Button
+                android:id="@+id/btnCatFilterStart"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:backgroundTint="@color/button_light"
+                android:textColor="@color/black"
+                android:layout_marginEnd="4dp"/>
 
-        <!-- Apply Button -->
-        <Button
-            android:id="@+id/btnCatApplyFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="Filter"
-            android:textSize="12sp"
-            android:backgroundTint="@color/primary_green"
-            android:textColor="@android:color/white"/>
+            <!-- End Date Filter -->
+            <Button
+                android:id="@+id/btnCatFilterEnd"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:textSize="11sp"
+                android:backgroundTint="@color/button_light"
+                android:textColor="@color/black"
+                android:layout_marginEnd="4dp"/>
 
+            <!-- Apply Button -->
+            <Button
+                android:id="@+id/btnCatApplyFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Filter"
+                android:textSize="12sp"
+                android:backgroundTint="@color/primary_green"
+                android:textColor="@color/black"/>
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Overall Sum for the period -->
@@ -70,9 +115,61 @@
         android:text="Total: R 0.00"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:textColor="@color/primary_green"
-        android:padding="8dp"
+        android:textColor="@color/black"
+        android:paddingTop="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"/>
+
+    <TextView
+        android:id="@+id/tvMinMaxDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Min: R 0.00 | Max: R 0.00"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:paddingBottom="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
         android:layout_marginBottom="8dp"/>
+
+    <!-- Charts for Visual Analytics -->
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="8dp"/>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barChart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Spending Trend"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="8dp"/>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:id="@+id/tvTrendInsights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Analyze your trends above!"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        android:padding="8dp"
+        android:background="@drawable/insight_bg"
+        android:layout_marginBottom="16dp"/>
 
     <!-- Empty State Text -->
     <TextView
@@ -81,7 +178,7 @@
         android:layout_height="wrap_content"
         android:text="No data for this period."
         android:textAlignment="center"
-        android:textColor="@color/text_secondary"
+        android:textColor="@color/black"
         android:padding="32dp"
         android:visibility="gone"/>
 
@@ -89,6 +186,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategoryTotals"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"/>
+    </LinearLayout>
+</ScrollView>

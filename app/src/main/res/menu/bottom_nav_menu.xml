@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nav_home" android:icon="@android:drawable/ic_menu_today" android:title="Home"/>
-    <item android:id="@+id/nav_analytics" android:icon="@android:drawable/ic_menu_sort_by_size" android:title="Analytics"/>
-    <item android:id="@+id/nav_add" android:icon="@android:drawable/ic_menu_add" android:title="Add"/>
-    <item android:id="@+id/nav_categories" android:icon="@android:drawable/ic_menu_manage" android:title="Categories"/>
-    <item android:id="@+id/nav_goals" android:icon="@android:drawable/ic_menu_compass" android:title="Goals"/>
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@android:drawable/ic_menu_today"
+        android:title="Home"/>
+    <item
+        android:id="@+id/nav_add"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Add"/>
+    <item
+        android:id="@+id/nav_analytics"
+        android:icon="@android:drawable/ic_menu_sort_by_size"
+        android:title="Analytics"/>
+    <item
+        android:id="@+id/nav_more"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="Goals"/>
 </menu>

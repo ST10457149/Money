@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Savings Goals"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etSavingsGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Monthly Spending Limit"
+        android:inputType="numberDecimal"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black" />
+
+    <Button
+        android:id="@+id/btnSetGoal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Goal"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/tvCurrentGoalDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="Current Goal: R 0.00" />
+
+    <Button
+        android:id="@+id/btnExportReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Export Monthly Report"
+        android:textColor="@color/black"
+        android:layout_marginTop="32dp" />
+
+</LinearLayout>

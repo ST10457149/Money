@@ -30,7 +30,7 @@
             android:text="MoneyGoat"
             android:textSize="32sp"
             android:textStyle="bold"
-            android:textColor="@color/primary_green"
+            android:textColor="@color/black"
             android:layout_marginBottom="8dp"/>
 
         <!-- App Tagline -->
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:text="The GOAT of budgeting"
             android:textSize="14sp"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/black"
             android:layout_marginBottom="40dp"/>
 
         <!-- Login Card -->
@@ -58,21 +58,22 @@
                     android:text="Welcome Back"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_green"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="20dp"/>
 
-                <!-- Username Input -->
+                <!-- Email Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:hint="Username">
+                    android:hint="@string/hint_email">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etUsername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="text"/>
+                        android:textColor="@color/black"
+                        android:inputType="textEmailAddress"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Password Input -->
@@ -80,13 +81,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:hint="Password"
+                    android:hint="@string/hint_password"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:inputType="textPassword"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,7 +99,21 @@
                     android:layout_height="52dp"
                     android:text="Log In"
                     android:backgroundTint="@color/primary_green"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Biometric Login Button -->
+                <Button
+                    android:id="@+id/btnBiometricLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Fingerprint Login"
+                    android:backgroundTint="@color/button_light"
+                    android:textColor="@color/black"
+                    android:visibility="gone"
+                    app:icon="@android:drawable/ic_lock_idle_lock"
+                    app:iconGravity="textStart"
+                    app:iconTint="@color/black"/>
 
                 <!-- Register Link -->
                 <TextView
@@ -107,7 +123,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="16dp"
                     android:text="Don't have an account? Register"
-                    android:textColor="@color/primary_green"
+                    android:textColor="@color/black"
                     android:clickable="true"
                     android:focusable="true"/>
 

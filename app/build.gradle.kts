@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.googleServices)
 }
 
 android {
@@ -42,9 +43,20 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.cardview)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.androidx.biometric)
+    implementation(libs.mlkit.text.recognition)
+    implementation(libs.androidx.work.runtime)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.database)
+    implementation(libs.firebase.auth)
+    implementation(libs.mpandroidchart)
+    implementation(libs.glide)
 
     val room_version = "2.8.4"
     implementation("androidx.room:room-runtime:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
+
+    testImplementation(libs.junit)
 }

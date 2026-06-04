@@ -32,7 +32,7 @@
             android:text="Join the Herd"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="@color/primary_green"
+            android:textColor="@color/black"
             android:layout_marginBottom="32dp"/>
 
         <!-- Registration Form Card -->
@@ -48,18 +48,19 @@
                 android:orientation="vertical"
                 android:padding="24dp">
 
-                <!-- New Username Input -->
+                <!-- Email Input -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:hint="Choose a Username">
+                    android:hint="@string/hint_email">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etRegUsername"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="text"/>
+                        android:textColor="@color/black"
+                        android:inputType="textEmailAddress"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,13 +69,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    android:hint="Password"
+                    android:hint="@string/hint_password"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etRegPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:inputType="textPassword"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -84,13 +86,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:hint="Confirm Password"
+                    android:hint="@string/hint_confirm_password"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etRegConfirmPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/black"
                         android:inputType="textPassword"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -102,7 +105,7 @@
                     android:layout_height="52dp"
                     android:text="Register"
                     android:backgroundTint="@color/primary_green"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@color/black"/>
 
                 <!-- Back to Login Link -->
                 <TextView
@@ -112,7 +115,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="16dp"
                     android:text="Already have an account? Log In"
-                    android:textColor="@color/primary_green"
+                    android:textColor="@color/black"
                     android:clickable="true"
                     android:focusable="true"/>
             </LinearLayout>

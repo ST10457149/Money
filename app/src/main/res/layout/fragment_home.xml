@@ -15,24 +15,54 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Welcome Message -->
-        <TextView
-            android:id="@+id/tvWelcome"
-            android:layout_width="wrap_content"
+        <!-- Welcome Message & Mascot -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/primary_green"
-            android:layout_marginBottom="4dp" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
 
-        <!-- Current Month Label -->
-        <TextView
-            android:id="@+id/tvMonthLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/text_secondary"
-            android:layout_marginBottom="16dp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/tvMonthLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/tvNetWorthSummary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="Net Worth: R 0.00" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvGoatMascot"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:gravity="center"
+                android:textSize="50sp"
+                android:text="🐐" />
+        </LinearLayout>
 
         <!-- Budget Summary Card -->
         <androidx.cardview.widget.CardView
@@ -54,6 +84,7 @@
                     android:text="Monthly Budget"
                     android:textSize="16sp"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="12dp" />
 
                 <!-- Total Amount Spent -->
@@ -64,7 +95,7 @@
                     android:text="R 0.00"
                     android:textSize="32sp"
                     android:textStyle="bold"
-                    android:textColor="@color/primary_green"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="8dp" />
 
                 <!-- Budget Progress Bar -->
@@ -91,16 +122,74 @@
                         android:layout_weight="1"
                         android:text="0%"
                         android:textSize="12sp"
-                        android:textColor="@color/text_secondary" />
+                        android:textColor="@color/black" />
+                </LinearLayout>
 
-                    <!-- Goal Range Information -->
+                <!-- Goal Range Information -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp">
+
                     <TextView
-                        android:id="@+id/tvGoalInfo"
+                        android:id="@+id/tvMinGoal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Min Save Goal: R 0"
+                        android:textSize="11sp"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/tvMaxGoal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:textColor="@color/text_secondary" />
+                        android:text="Max Spend: R 0"
+                        android:textSize="11sp"
+                        android:textColor="@color/black" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvGoalInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Recent Expenses Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Upcoming Bills"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:id="@+id/tvUpcomingBills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No upcoming bills"
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -124,6 +213,7 @@
                     android:text="Recent Expenses"
                     android:textSize="16sp"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="12dp" />
 
                 <!-- List of up to 5 recent expenses -->
@@ -133,7 +223,7 @@
                     android:layout_height="wrap_content"
                     android:text="No expenses yet"
                     android:textSize="14sp"
-                    android:textColor="@color/text_secondary"
+                    android:textColor="@color/black"
                     android:lineSpacingExtra="6dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

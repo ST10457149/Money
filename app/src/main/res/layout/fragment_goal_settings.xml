@@ -23,7 +23,7 @@
             android:text="Budget Goals"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="@color/primary_green"
+            android:textColor="@color/black"
             android:layout_marginBottom="4dp"/>
 
         <!-- Display for current target month -->
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
-            android:textColor="@color/text_secondary"
+            android:textColor="@color/black"
             android:layout_marginBottom="16dp"/>
 
         <androidx.cardview.widget.CardView
@@ -54,6 +54,7 @@
                     android:text="Minimum Monthly Goal"
                     android:textSize="14sp"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="4dp"/>
 
                 <TextView
@@ -62,7 +63,7 @@
                     android:layout_height="wrap_content"
                     android:text="R 0"
                     android:textSize="12sp"
-                    android:textColor="@color/text_secondary"/>
+                    android:textColor="@color/black"/>
 
                 <SeekBar
                     android:id="@+id/seekBarMin"
@@ -81,6 +82,8 @@
                     android:inputType="numberDecimal"
                     android:background="@drawable/edit_text_bg"
                     android:padding="12dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
                     android:layout_marginBottom="20dp"/>
 
                 <!-- Maximum Goal Section -->
@@ -90,6 +93,7 @@
                     android:text="Maximum Monthly Goal"
                     android:textSize="14sp"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="4dp"/>
 
                 <TextView
@@ -98,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:text="R 0"
                     android:textSize="12sp"
-                    android:textColor="@color/text_secondary"/>
+                    android:textColor="@color/black"/>
 
                 <SeekBar
                     android:id="@+id/seekBarMax"
@@ -117,7 +121,38 @@
                     android:inputType="numberDecimal"
                     android:background="@drawable/edit_text_bg"
                     android:padding="12dp"
-                    android:layout_marginBottom="24dp"/>
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Suggestion Section -->
+                <LinearLayout
+                    android:id="@+id/layoutSuggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="@drawable/insight_bg"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="24dp"
+                    android:visibility="gone">
+                    <TextView
+                        android:id="@+id/tvSuggestion"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Based on your history, we suggest: R0"
+                        android:textSize="12sp"
+                        android:textColor="@color/primary_green"/>
+                    <Button
+                        android:id="@+id/btnApplySuggestion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="Use"
+                        android:textSize="10sp"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:textColor="@color/primary_green"/>
+                </LinearLayout>
 
                 <!-- Save Button -->
                 <Button
@@ -127,7 +162,7 @@
                     android:text="Save Goals"
                     android:textSize="16sp"
                     android:backgroundTint="@color/primary_green"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@color/black"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

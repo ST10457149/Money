@@ -27,7 +27,7 @@
             android:layout_weight="1"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/text_primary"/>
+            android:textColor="@color/black"/>
 
         <!-- Total Sum spent in this category -->
         <TextView
@@ -36,6 +36,6 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/primary_green"/>
+            android:textColor="@color/black"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

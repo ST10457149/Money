@@ -23,7 +23,7 @@
             android:text="Add Expense"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="@color/primary_green"
+            android:textColor="@color/black"
             android:layout_marginBottom="16dp"/>
 
         <!-- Card containing the entry form -->
@@ -46,6 +46,7 @@
                     android:text="Description"
                     android:textSize="14sp"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="4dp"/>
 
                 <EditText
@@ -53,6 +54,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="What did you spend on?"
+                    android:textColor="@color/black"
+                    android:textColorHint="#757575"
                     android:inputType="text"
                     android:background="@drawable/edit_text_bg"
                     android:padding="12dp"
@@ -65,6 +68,7 @@
                     android:text="Amount (R)"
                     android:textSize="14sp"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="4dp"/>
 
                 <EditText
@@ -72,6 +76,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="0.00"
+                    android:textColor="@color/black"
+                    android:textColorHint="#757575"
                     android:inputType="numberDecimal"
                     android:background="@drawable/edit_text_bg"
                     android:padding="12dp"
@@ -84,7 +90,7 @@
                     android:layout_height="48dp"
                     android:text="Select Date"
                     android:backgroundTint="@color/button_light"
-                    android:textColor="@color/text_primary"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="8dp"/>
 
                 <!-- Time Range Selection Buttons -->
@@ -101,7 +107,7 @@
                         android:layout_weight="1"
                         android:text="Start Time"
                         android:backgroundTint="@color/button_light"
-                        android:textColor="@color/text_primary"
+                        android:textColor="@color/black"
                         android:layout_marginEnd="4dp"/>
 
                     <Button
@@ -111,7 +117,7 @@
                         android:layout_weight="1"
                         android:text="End Time"
                         android:backgroundTint="@color/button_light"
-                        android:textColor="@color/text_primary"
+                        android:textColor="@color/black"
                         android:layout_marginStart="4dp"/>
 
                 </LinearLayout>
@@ -123,10 +129,29 @@
                     android:text="Category"
                     android:textSize="14sp"
                     android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:layout_marginBottom="4dp"/>
 
                 <Spinner
                     android:id="@+id/spinnerCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/edit_text_bg"
+                    android:padding="8dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Account Selection -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="4dp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerAccount"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@drawable/edit_text_bg"
@@ -161,7 +186,7 @@
                     android:text="Save Expense"
                     android:textSize="16sp"
                     android:backgroundTint="@color/primary_green"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@color/black"/>
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

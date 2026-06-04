@@ -5,6 +5,7 @@
 -->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,8 +19,50 @@
         android:text="Expense History"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="@color/primary_green"
+        android:textColor="@color/black"
         android:layout_marginBottom="12dp"/>
+
+    <!-- Summary Section -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        android:layout_marginBottom="12dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp">
+            <TextView
+                android:id="@+id/tvListSummary"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Total for period: R 0.00"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/tvListCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 items"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Search Bar -->
+    <EditText
+        android:id="@+id/etSearchExpense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search expenses..."
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:padding="10dp"
+        android:background="@drawable/edit_text_bg"
+        android:layout_marginBottom="8dp"/>
 
     <!-- Filter Controls -->
     <LinearLayout
@@ -36,7 +79,7 @@
             android:layout_weight="1"
             android:textSize="11sp"
             android:backgroundTint="@color/button_light"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/black"
             android:layout_marginEnd="4dp"/>
 
         <!-- End Date Selector -->
@@ -47,7 +90,7 @@
             android:layout_weight="1"
             android:textSize="11sp"
             android:backgroundTint="@color/button_light"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/black"
             android:layout_marginEnd="4dp"/>
 
         <!-- Apply Filter Button -->
@@ -58,7 +101,7 @@
             android:text="Filter"
             android:textSize="12sp"
             android:backgroundTint="@color/primary_green"
-            android:textColor="@android:color/white"/>
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 
@@ -69,7 +112,7 @@
         android:layout_height="wrap_content"
         android:text="No expenses found for this period."
         android:textAlignment="center"
-        android:textColor="@color/text_secondary"
+        android:textColor="@color/black"
         android:padding="32dp"
         android:visibility="gone"/>
 
@@ -79,4 +122,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
+
+    <!-- Export Button -->
+    <Button
+        android:id="@+id/btnExportCsv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Export to CSV"
+        android:backgroundTint="@color/accent_gold"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"/>
 </LinearLayout>
